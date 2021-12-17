@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --background-color: #222327;
+  --icon-size: 70px;
+  --menu-background: #fff;
+  --border-radius: 10px;
+  --indicator-color: #29fd53;
+}
+body {
+  font-family: "Raleway", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--background-color);
+}
+.navbar_1 {
+  position: relative;
+  width: 400px;
+  height: var(--icon-size);
+  background-color: var(--menu-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--border-radius);
+}
+.navbar_1 ul {
+  display: flex;
+  width: calc(var(--icon-size) * 5);
+}
+.navbar_1 ul li {
+  position: relative;
+  list-style: none;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  z-index: 1;
+}
+.navbar_1 ul li a {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+}
+.navbar_1 ul li a .icon {
+  position: relative;
+  display: block;
+  line-height: 75px;
+  font-size: 1.5em;
+  text-align: center;
+  transition: transform 0.5s;
+  color: var(--background-color);
+}
+.navbar_1 ul li.active a .icon {
+  transform: translateY(calc(var(--icon-size) / (-2)));
+}
+.navbar_1 ul li a .text {
+  position: absolute;
+  color: var(--background-color);
+  font-weight: 400;
+  font-size: 0.75em;
+  letter-spacing: 0.05em;
+  transition: opacity 0.5s, transform 0.5s;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.navbar_1 ul li.active a .text {
+  opacity: 1;
+  transform: translateY(10px);
+}
+.indicator_1 {
+  position: absolute;
+  top: -50%;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  background-color: var(--indicator-color);
+  border-radius: 50%;
+  border: 6px solid var(--background-color);
+  transition: 0.5s;
+}
+.indicator_1::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -22px;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border-top-right-radius: 20px;
+  box-shadow: 0px -10px 0 0 var(--background-color);
+}
+.indicator_1::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -22px;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border-top-left-radius: 20px;
+  box-shadow: 0px -10px 0 0 var(--background-color);
+}
+.navbar_1 ul li:nth-child(1).active ~ .indicator_1 {
+  transform: translateX(calc(var(--icon-size) * 0));
+}
+.navbar_1 ul li:nth-child(2).active ~ .indicator_1 {
+  transform: translateX(calc(var(--icon-size) * 1));
+}
+.navbar_1 ul li:nth-child(3).active ~ .indicator_1 {
+  transform: translateX(calc(var(--icon-size) * 2));
+}
+.navbar_1 ul li:nth-child(4).active ~ .indicator_1 {
+  transform: translateX(calc(var(--icon-size) * 3));
+}
+.navbar_1 ul li:nth-child(5).active ~ .indicator_1 {
+  transform: translateX(calc(var(--icon-size) * 4));
+}
