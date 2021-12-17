@@ -13,16 +13,19 @@
   --menu-background: #fff;
   --border-radius: 10px;
   --indicator-color: #29fd53;
+  --second-indicator: #7434eb;
 }
 body {
   font-family: "Raleway", sans-serif;
   display: flex;
+  gap: 100px;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   background-color: var(--background-color);
 }
-.navbar_1 {
+.navbar {
   position: relative;
   width: 400px;
   height: var(--icon-size);
@@ -32,18 +35,18 @@ body {
   align-items: center;
   border-radius: var(--border-radius);
 }
-.navbar_1 ul {
+.navbar ul {
   display: flex;
   width: calc(var(--icon-size) * 5);
 }
-.navbar_1 ul li {
+.navbar ul li {
   position: relative;
   list-style: none;
   width: var(--icon-size);
   height: var(--icon-size);
   z-index: 1;
 }
-.navbar_1 ul li a {
+.navbar ul li a {
   position: relative;
   display: flex;
   justify-content: center;
@@ -53,7 +56,7 @@ body {
   text-align: center;
   font-weight: 500;
 }
-.navbar_1 ul li a .icon {
+.navbar ul li a .icon {
   position: relative;
   display: block;
   line-height: 75px;
@@ -62,20 +65,20 @@ body {
   transition: transform 0.5s;
   color: var(--background-color);
 }
-.navbar_1 ul li.active a .icon {
+.navbar ul li.active a .icon {
   transform: translateY(calc(var(--icon-size) / (-2)));
 }
-.navbar_1 ul li a .text {
+.navbar ul li a .text {
   position: absolute;
   color: var(--background-color);
-  font-weight: 400;
+  font-weight: 700;
   font-size: 0.75em;
   letter-spacing: 0.05em;
   transition: opacity 0.5s, transform 0.5s;
   opacity: 0;
   transform: translateY(20px);
 }
-.navbar_1 ul li.active a .text {
+.navbar ul li.active a .text {
   opacity: 1;
   transform: translateY(10px);
 }
@@ -111,18 +114,74 @@ body {
   border-top-left-radius: 20px;
   box-shadow: 0px -10px 0 0 var(--background-color);
 }
-.navbar_1 ul li:nth-child(1).active ~ .indicator_1 {
+.navbar ul li:nth-child(1).active ~ .indicator_1 {
   transform: translateX(calc(var(--icon-size) * 0));
 }
-.navbar_1 ul li:nth-child(2).active ~ .indicator_1 {
+.navbar ul li:nth-child(2).active ~ .indicator_1 {
   transform: translateX(calc(var(--icon-size) * 1));
 }
-.navbar_1 ul li:nth-child(3).active ~ .indicator_1 {
+.navbar ul li:nth-child(3).active ~ .indicator_1 {
   transform: translateX(calc(var(--icon-size) * 2));
 }
-.navbar_1 ul li:nth-child(4).active ~ .indicator_1 {
+.navbar ul li:nth-child(4).active ~ .indicator_1 {
   transform: translateX(calc(var(--icon-size) * 3));
 }
-.navbar_1 ul li:nth-child(5).active ~ .indicator_1 {
+.navbar ul li:nth-child(5).active ~ .indicator_1 {
   transform: translateX(calc(var(--icon-size) * 4));
+}
+.indicator_2 {
+  position: absolute;
+  top: -50%;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  background-color: var(--menu-background);
+  border-radius: 50%;
+  transition: 0.5s;
+}
+.indicator_2::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: -28px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border-bottom-right-radius: 50%;
+  box-shadow: 15px 18px var(--menu-background);
+}
+.indicator_2::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  right: -28px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border-bottom-left-radius: 50%;
+  box-shadow: -15px 18px var(--menu-background);
+}
+.navbar ul li:nth-child(1).active ~ .indicator_2 {
+  transform: translateX(calc(var(--icon-size) * 0));
+}
+.navbar ul li:nth-child(2).active ~ .indicator_2 {
+  transform: translateX(calc(var(--icon-size) * 1));
+}
+.navbar ul li:nth-child(3).active ~ .indicator_2 {
+  transform: translateX(calc(var(--icon-size) * 2));
+}
+.navbar ul li:nth-child(4).active ~ .indicator_2 {
+  transform: translateX(calc(var(--icon-size) * 3));
+}
+.navbar ul li:nth-child(5).active ~ .indicator_2 {
+  transform: translateX(calc(var(--icon-size) * 4));
+}
+.navbar ul li.listElement_2.active .icon {
+  color: var(--second-indicator);
+}
+.navbar ul li.listElement_2.active .text {
+  background-color: var(--second-indicator);
+  color: var(--menu-background);
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: 400;
 }
